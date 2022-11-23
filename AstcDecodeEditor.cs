@@ -3,20 +3,18 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json;
 
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.AssetImporters;
 using System.Data;
 using System.Linq;
-using Newtonsoft.Json.Linq;
 using System.Text;
 using System.Diagnostics;
 
 public class AstcDecodeEditor : EditorWindow
 {
-    [MenuItem("EH/ASTC -> PNG º¯È¯")]
+    [MenuItem("MENU/ASTC -> PNG ë³€í™˜")]
     public static void ShowWindow()
     {
         AstcDecodeEditor astcDecodeEditor = (AstcDecodeEditor)EditorWindow.GetWindow(typeof(AstcDecodeEditor));
@@ -43,14 +41,14 @@ public class AstcDecodeEditor : EditorWindow
     {
         if (string.IsNullOrEmpty(path))
         {
-            path = EditorUtility.OpenFolderPanel("astcend °æ·Î", "", "");
+            path = EditorUtility.OpenFolderPanel("astcend ê²½ë¡œ", "", "");
         }
 
         if (path.Length != 0)
         {
             if (string.IsNullOrEmpty(_astcFolderPath))
             {
-                _astcFolderPath = EditorUtility.OpenFolderPanel("astc -> png º¯È¯ÇÒ Æú´õ", _lastPath, "");
+                _astcFolderPath = EditorUtility.OpenFolderPanel("astc -> png ë³€í™˜í•  í´ë”", _lastPath, "");
             }
         }
     }
@@ -175,12 +173,12 @@ public class AstcDecodeEditor : EditorWindow
 
                 EditorGUILayout.BeginHorizontal();
 
-                if (GUILayout.Button("ÀÌ¹ÌÁö Æú´õ º¯°æ", GUILayout.Width(200), GUILayout.Height(70)))
+                if (GUILayout.Button("ì´ë¯¸ì§€ í´ë” ë³€ê²½", GUILayout.Width(200), GUILayout.Height(70)))
                 {
                     isExistAstc = false;
                     isCompleteCovert = false;
 
-                    _astcFolderPath = EditorUtility.OpenFolderPanel("astc -> png º¯È¯ÇÒ Æú´õ", _lastPath, "");
+                    _astcFolderPath = EditorUtility.OpenFolderPanel("astc -> png ë³€í™˜í•  í´ë”", _lastPath, "");
 
                     if (_astcFolderPath.Length != 0)
                     {
@@ -198,7 +196,7 @@ public class AstcDecodeEditor : EditorWindow
 
                 if (isExistAstc == true)
                 {
-                    if (GUILayout.Button("PNG ÆÄÀÏ·Î º¯°æ", GUILayout.Width(200), GUILayout.Height(70)))
+                    if (GUILayout.Button("PNG íŒŒì¼ë¡œ ë³€ê²½", GUILayout.Width(200), GUILayout.Height(70)))
                     {
                         _astcFileList.Clear();
 
@@ -261,7 +259,7 @@ public class AstcDecodeEditor : EditorWindow
 
                     if (isCompleteCovert == true)
                     {
-                        if (GUILayout.Button("PNG ÅØ½ºÃÄ ¼³Á¤", GUILayout.Width(200), GUILayout.Height(70)))
+                        if (GUILayout.Button("PNG í…ìŠ¤ì³ ì„¤ì •", GUILayout.Width(200), GUILayout.Height(70)))
                         {
                             string _resultFile = "convertFile.txt";
 
@@ -294,7 +292,7 @@ public class AstcDecodeEditor : EditorWindow
 
                     EditorGUILayout.Space(10);
 
-                    EditorGUILayout.TextField("astc ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.", GUILayout.Width(200), GUILayout.Height(70));
+                    EditorGUILayout.TextField("astc íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.", GUILayout.Width(200), GUILayout.Height(70));
 
                     EditorGUILayout.EndVertical();
                 }
